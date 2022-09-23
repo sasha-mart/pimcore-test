@@ -6,4 +6,4 @@ RUN apt-get update \
     make\
     librabbitmq-dev \
     && pecl install amqp \
-    && docker-php-ext-enable amqp
+    && docker-php-ext-enable amqp \

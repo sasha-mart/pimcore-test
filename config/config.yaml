@@ -138,3 +138,9 @@ framework:
 #        transports:
 #            main: smtp://user:pass@smtp.example.com:port
 #            pimcore_newsletter: smtp://user:pass@smtp.example.com:port
+
+    messenger:
+        transports:
+            test: "%env(MESSENGER_TRANSPORT_DSN)%"
+        routing:
+            'App\Message\FolderCreatedMessage': test

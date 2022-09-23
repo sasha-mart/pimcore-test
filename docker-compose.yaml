@@ -28,7 +28,7 @@ services:
 
     php-fpm:
         user: '1000:100' # set to your uid:gid
-        image: pimcore/pimcore:PHP8.1-fpm
+        build: './.docker/php'
         environment:
             COMPOSER_HOME: /var/www/html
         depends_on:
@@ -58,6 +58,11 @@ services:
             - .:/var/www/html
             - ./.docker/supervisord.conf:/etc/supervisor/conf.d/pimcore.conf:ro
 
+    rabbit:
+        image: rabbitmq:3-management
+        environment:
+            RABBITMQ_DEFAULT_USER: "rabbitmq"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq"
 
 volumes:
     pimcore-database:

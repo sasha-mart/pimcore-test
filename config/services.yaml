@@ -73,3 +73,6 @@ services:
     App\EventListener\FolderEventsListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.document.postAdd, method: onFolderCreated }
+
+    App\MessageHandler\FolderCreatedHandler:
+        tags: [ messenger.message_handler ]
